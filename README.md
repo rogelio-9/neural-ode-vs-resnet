@@ -45,7 +45,7 @@ This result matters because it is the **central empirical justification** for Ne
 
 ```
 neural-ode-vs-resnet/
-├── README.md                  ← You are here
+├── README.md
 ├── code/
 │   └── Neural_ODE_vs_ResNet.ipynb   ← Full training & evaluation notebook
 ├── data/
