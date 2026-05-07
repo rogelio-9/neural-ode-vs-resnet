@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Data (auto-downloaded at runtime — do not commit)
+data/MNIST/
+data/cifar-10-batches-py/
+data/*.tar.gz
+data/*.gz
+
+# Results / model checkpoints (large files)
+results/*.pt
+results/*.pth
+*.ckpt
+
+# Environment
+.env
+venv/
+env/
+.venv/
+
+# macOS
+.DS_Store
+
+# VSCode / PyCharm
+.vscode/
+.idea/
+
+# Logs
+*.log
