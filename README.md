@@ -1,6 +1,6 @@
 # Neural ODE vs. ResNet: An Empirical Comparison on Image Classification
 
-> **CS 5365: Deep Learning — Final Project**
+> **CS 5365: Deep Learning - Final Project**
 > Rogelio Lozano · Joe Mota
 > Department of Computer Science, The University of Texas at El Paso
 
@@ -14,7 +14,7 @@ This repository contains a from-scratch re-implementation of the architectures p
 > *Neural Ordinary Differential Equations.* NeurIPS 2018.
 > [[arXiv:1806.07366]](https://arxiv.org/abs/1806.07366)
 
-The paper introduces **Neural ODEs** — a family of models that replace discrete residual layers with a continuous-depth dynamical system governed by an ordinary differential equation:
+The paper introduces **Neural ODEs** - a family of models that replace discrete residual layers with a continuous-depth dynamical system governed by an ordinary differential equation:
 
 $$\frac{dh(t)}{dt} = f(h(t), t, \theta)$$
 
@@ -65,7 +65,7 @@ neural-ode-vs-resnet/
 
 ### Architectures
 
-**ResNet (`SmallResNet`)** — A 3-stage residual network following the standard `conv → BN → ReLU → conv → BN` pattern with skip connections, global average pooling, and a fully connected classifier head. Base channel width is tunable to match parameter counts against the Neural ODE.
+**ResNet (`SmallResNet`)** - A 3-stage residual network following the standard `conv → BN → ReLU → conv → BN` pattern with skip connections, global average pooling, and a fully connected classifier head. Base channel width is tunable to match parameter counts against the Neural ODE.
 
 **Neural ODE (`NeuralODENet`)** — Mirrors the paper's image classifier design:
 1. **Downsampling stem** — CNN layers reduce spatial resolution and lift channel count
@@ -124,13 +124,13 @@ pip install torch torchvision torchdiffeq numpy pandas matplotlib tqdm
 
 > **GPU strongly recommended.** Training was done on an NVIDIA A100 (40GB VRAM) via Google Colab. With a consumer GPU (e.g., RTX 3080), expect roughly similar MNIST times but significantly longer CIFAR-10 runs. CPU-only training is not recommended for CIFAR-10.
 
-### Option A — Google Colab (Recommended)
+### Option A - Google Colab (Recommended)
 
 1. Open `code/Neural_ODE_vs_ResNet.ipynb` in [Google Colab](https://colab.research.google.com/)
 2. Select **Runtime → Change runtime type → GPU (A100 or T4)**
 3. Run all cells top to bottom — datasets download automatically
 
-### Option B — Local Jupyter
+### Option B - Local Jupyter
 
 ```bash
 git clone https://github.com/<your-username>/neural-ode-vs-resnet.git
@@ -160,10 +160,10 @@ CFG = {
 
 | Experiment          | A100 (Colab) | RTX 3080 (est.) |
 |---------------------|-------------|-----------------|
-| ResNet — MNIST      | ~2 min      | ~3–5 min        |
-| Neural ODE — MNIST  | ~16 min     | ~30–45 min      |
-| ResNet — CIFAR-10   | ~9 min      | ~15–20 min      |
-| Neural ODE — CIFAR-10 | ~49 min   | ~90–120 min     |
+| ResNet - MNIST      | ~2 min      | ~3–5 min        |
+| Neural ODE - MNIST  | ~16 min     | ~30–45 min      |
+| ResNet - CIFAR-10   | ~9 min      | ~15–20 min      |
+| Neural ODE - CIFAR-10 | ~49 min   | ~90–120 min     |
 
 ### Obtaining the Data
 
@@ -177,13 +177,13 @@ MNIST and CIFAR-10 are downloaded automatically via `torchvision.datasets` on fi
 
 Running the full notebook produces four trained models and prints a results table for each. Generated figures (loss curves, NFE curves, efficiency bar charts) are saved to `results/`.
 
-### MNIST — Claim Largely Confirmed ✅
+### MNIST - Claim Largely Confirmed
 
 The Neural ODE reached **96.85%** test accuracy vs. **99.53%** for ResNet — only 2.7 points lower — with **3.4× fewer parameters** and **16% less peak GPU memory**. The memory efficiency claim from the paper holds clearly. The main cost is training time: ~16 min vs. ~2 min due to ODE solver overhead.
 
-### CIFAR-10 — Significant Divergence ⚠️
+### CIFAR-10 - Significant Divergence
 
-The Neural ODE only reached **65.44%** vs. **90.84%** for ResNet — a 25-point gap not implied by the original paper. The adaptive solver averaged ~75 NFE/batch on CIFAR-10 (vs. ~60 on MNIST), and val accuracy oscillated severely throughout training. Despite this, the **memory advantage held**: 290 MB vs. 520 MB (44% less), with 3.4× fewer parameters.
+The Neural ODE only reached **65.44%** vs. **90.84%** for ResNet - a 25-point gap not implied by the original paper. The adaptive solver averaged ~75 NFE/batch on CIFAR-10 (vs. ~60 on MNIST), and val accuracy oscillated severely throughout training. Despite this, the **memory advantage held**: 290 MB vs. 520 MB (44% less), with 3.4× fewer parameters.
 
 ### Key Takeaway
 
@@ -193,7 +193,7 @@ The Neural ODE only reached **65.44%** vs. **90.84%** for ResNet — a 25-point 
 
 ## Conclusion
 
-This project gave us a much deeper appreciation for what Neural ODEs actually do versus what they sound like on paper. The continuous-depth framing is elegant and the memory efficiency is real and reproducible — but matching ResNet accuracy on anything beyond simple benchmarks requires careful architecture choices and training stability work. The adaptive solver introduces a feedback loop between the loss landscape and compute steps taken, making Neural ODEs fundamentally harder to tune than a ResNet where every epoch is structurally identical.
+This project gave us a much deeper appreciation for what Neural ODEs actually do versus what they sound like on paper. The continuous-depth framing is elegant and the memory efficiency is real and reproducible - but matching ResNet accuracy on anything beyond simple benchmarks requires careful architecture choices and training stability work. The adaptive solver introduces a feedback loop between the loss landscape and compute steps taken, making Neural ODEs fundamentally harder to tune than a ResNet where every epoch is structurally identical.
 
 **Key lessons learned:**
 - Neural ODE training stability is highly sensitive to solver tolerances — a tradeoff the paper does not surface
