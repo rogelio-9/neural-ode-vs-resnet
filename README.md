@@ -1,5 +1,7 @@
 # Neural ODE vs. ResNet: An Empirical Comparison on Image Classification
 
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1RPC61hKd3BjROguS963VeLQ40De4PNiv?usp=sharing)
+
 > **CS 5365: Deep Learning - Final Project**
 > Rogelio Lozano · Joe Mota
 > Department of Computer Science, The University of Texas at El Paso
