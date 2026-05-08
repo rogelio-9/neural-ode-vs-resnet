@@ -135,7 +135,7 @@ pip install torch torchvision torchdiffeq numpy pandas matplotlib tqdm
 ### Option B - Local Jupyter
 
 ```bash
-git clone https://github.com/<your-username>/neural-ode-vs-resnet.git
+git clone https://github.com/rogelio-9/neural-ode-vs-resnet.git
 cd neural-ode-vs-resnet
 pip install torch torchvision torchdiffeq numpy pandas matplotlib tqdm jupyter
 jupyter notebook code/Neural_ODE_vs_ResNet.ipynb
