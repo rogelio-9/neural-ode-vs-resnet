@@ -1,0 +1,5 @@
+Model,Dataset,Params,Best val acc (%),Test acc (%),Test loss,Train time (s),Peak mem (MB),Mean NFE/batch,Test NFE/batch
+ResNet,MNIST,"174,970",99.58,99.53,0.0166,117.6,145.3,—,—
+Neural ODE,MNIST,"52,138",99.32,99.14,0.0364,1013.8,121.4,67.2,20.0
+ResNet,CIFAR-10,"696,618",91.24,90.84,0.4276,530.0,519.6,—,—
+Neural ODE,CIFAR-10,"207,818",83.92,83.99,0.4796,2518.2,289.9,67.5,20.0
